@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="594.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewProgramDetailsFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="594.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="732.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#cecfd3" />
+                  <Stop color="#e1dfdf" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Separator layoutX="45.0" layoutY="86.0" prefHeight="3.0" prefWidth="636.0" />
+      <AnchorPane layoutX="47.0" layoutY="107.0" prefHeight="445.0" prefWidth="636.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="445.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 40; -fx-arc-width: 40;" width="636.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#bbbdc3" />
+                        <Stop color="#c2c3c6" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label alignment="CENTER" layoutX="220.0" layoutY="245.0" styleClass="manageReceptionistsTxt" stylesheets="@assets/css/TextFields.css" text=":">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblViewPrograms" layoutX="14.0" layoutY="14.0" prefHeight="418.0" prefWidth="607.0">
+              <columns>
+                <TableColumn fx:id="tblId" prefWidth="102.0" text="Program ID" />
+                <TableColumn fx:id="tblName" prefWidth="251.0" text="Program Name" />
+                  <TableColumn fx:id="tblDuration" prefWidth="134.0" text="Program Duration" />
+                  <TableColumn fx:id="tblFee" prefWidth="119.0" text="Program Fee" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="47.0" layoutX="43.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 40; -fx-arc-width: 40;" width="646.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#a8abae" />
+                  <Stop color="#a89e9e" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <JFXButton fx:id="searchBtnId" buttonType="RAISED" layoutX="559.0" layoutY="31.0" onAction="#btnSearchPrograms" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #20bf55;" text="Search" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <TextField fx:id="txtSearch" layoutX="64.0" layoutY="31.0" onKeyReleased="#searchEvent" prefHeight="25.0" prefWidth="478.0" promptText="Search Programs" />
+   </children>
+</AnchorPane>

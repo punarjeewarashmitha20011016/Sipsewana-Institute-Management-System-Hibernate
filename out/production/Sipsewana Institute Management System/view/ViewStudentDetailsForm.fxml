@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="514.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewStudentDetailsFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="534.0" layoutX="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="732.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#cecfd3" />
+                  <Stop color="#e1dfdf" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <AnchorPane layoutX="47.0" layoutY="48.0" prefHeight="445.0" prefWidth="636.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="445.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 40; -fx-arc-width: 40;" width="636.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#bbbdc3" />
+                        <Stop color="#c2c3c6" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <Label alignment="CENTER" layoutX="220.0" layoutY="245.0" styleClass="manageReceptionistsTxt" stylesheets="@assets/css/TextFields.css" text=":">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tblViewStudentsDetails" layoutX="14.0" layoutY="12.0" prefHeight="418.0" prefWidth="607.0">
+               <columns>
+                  <TableColumn fx:id="tblStudentId" prefWidth="77.0" text="Student ID" />
+                  <TableColumn fx:id="tblStudentName" prefWidth="146.0" text="Student Name" />
+                  <TableColumn fx:id="tblRegisteredDate" prefWidth="118.0" text="Registered Date" />
+                  <TableColumn fx:id="tblProgram" prefWidth="140.0" text="Registered Program" />
+                  <TableColumn fx:id="tblDuration" prefWidth="125.0" text="Program Duration" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

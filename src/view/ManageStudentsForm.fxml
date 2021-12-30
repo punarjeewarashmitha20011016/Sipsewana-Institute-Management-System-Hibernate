@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="594.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ManageStudentsFormController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="594.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="732.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#cecfd3" />
+                  <Stop color="#e1dfdf" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Separator layoutX="45.0" layoutY="86.0" prefHeight="3.0" prefWidth="636.0" />
+      <AnchorPane layoutX="47.0" layoutY="107.0" prefHeight="445.0" prefWidth="636.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="445.0" layoutY="3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 40; -fx-arc-width: 40;" width="636.0">
+               <fill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop color="#c6c6c6" />
+                        <Stop color="#d0d0d0" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </fill>
+            </Rectangle>
+            <JFXTextField fx:id="txtStudentId" focusColor="BLACK" labelFloat="true" layoutX="38.0" layoutY="88.0" onKeyReleased="#validateEvent" prefHeight="32.0" prefWidth="242.0" promptText="Student ID" styleClass="manageReceptionistsTxt" stylesheets="@assets/css/TextFields.css" unFocusColor="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="17.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton fx:id="updateBtnId" buttonType="RAISED" disable="true" layoutX="258.0" layoutY="338.0" onAction="#btnUpdateStudent" prefHeight="36.0" prefWidth="129.0" style="-fx-background-color: #20bf55;" text="Update Student" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="deleteBtnId" buttonType="RAISED" layoutX="405.0" layoutY="338.0" onAction="#btnDeleteStudent" prefHeight="36.0" prefWidth="129.0" style="-fx-background-color: #a40606;" text="Remove Student" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton fx:id="saveBtnId" buttonType="RAISED" disable="true" layoutX="110.0" layoutY="338.0" onAction="#btnSaveStudent" prefHeight="36.0" prefWidth="129.0" style="-fx-background-color: #20bf55;" text="Add Student" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <Separator layoutX="70.0" layoutY="320.0" prefHeight="3.0" prefWidth="493.0" />
+            <JFXTextField fx:id="txtStudentName" focusColor="BLACK" labelFloat="true" layoutX="38.0" layoutY="145.0" onKeyReleased="#validateEvent" prefHeight="32.0" prefWidth="242.0" promptText="Student Name" styleClass="manageReceptionistsTxt" stylesheets="@assets/css/TextFields.css" unFocusColor="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="17.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtStudentDOB" focusColor="BLACK" labelFloat="true" layoutX="38.0" layoutY="203.0" onKeyReleased="#validateEvent" prefHeight="32.0" prefWidth="242.0" promptText="Student D.O.B" styleClass="manageReceptionistsTxt" stylesheets="@assets/css/TextFields.css" unFocusColor="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="17.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="txtStudentNic" focusColor="BLACK" labelFloat="true" layoutX="38.0" layoutY="260.0" onKeyReleased="#validateEvent" prefHeight="32.0" prefWidth="242.0" promptText="Student NIC" styleClass="manageReceptionistsTxt" stylesheets="@assets/css/TextFields.css" unFocusColor="WHITE">
+               <font>
+                  <Font name="Monospaced Regular" size="17.0" />
+               </font>
+            </JFXTextField>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dddddd" height="97.0" layoutX="317.0" layoutY="15.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="293.0" />
+            <Label layoutX="399.0" layoutY="25.0" styleClass="manageReceptionistsTxt" stylesheets="@assets/css/TextFields.css" text="Registeration Date">
+               <font>
+                  <Font name="Monospaced Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblRegistrationDate" alignment="CENTER" layoutX="386.0" layoutY="60.0" prefHeight="27.0" prefWidth="156.0" text="2021/12/20">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dddddd" height="97.0" layoutX="317.0" layoutY="148.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 50; -fx-arc-width: 50;" width="293.0" />
+            <Label layoutX="383.0" layoutY="166.0" styleClass="manageReceptionistsTxt" stylesheets="@assets/css/TextFields.css" text="No.of Enrolled Courses">
+               <font>
+                  <Font name="Monospaced Regular" size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCountOfCoursesEnrolled" alignment="CENTER" layoutX="386.0" layoutY="201.0" prefHeight="27.0" prefWidth="156.0" text="2021/12/20">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <JFXRadioButton fx:id="rdbFacedInterview" layoutX="38.0" layoutY="27.0" onMouseClicked="#btnFacedTheInterview" styleClass="registerStudentsPromptTxt-radioBtn" stylesheets="@assets/css/TextFields.css" text="Faced the Interview" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="47.0" layoutX="43.0" layoutY="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-arc-height: 40; -fx-arc-width: 40;" width="646.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#a8abae" />
+                  <Stop color="#a89e9e" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Label fx:id="lblSetStudentId" alignment="CENTER" layoutX="603.0" layoutY="33.0" prefHeight="21.0" prefWidth="59.0" text="ST-001" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
