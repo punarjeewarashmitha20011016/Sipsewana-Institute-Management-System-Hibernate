@@ -1,0 +1,1 @@
+B. select s.id,s.name from RegistrationDetails r inner join Student s on r.studentId=s.id group by s.id having count(courseId) = 5;

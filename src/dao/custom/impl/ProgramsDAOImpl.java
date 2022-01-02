@@ -6,7 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
-import org.slf4j.Logger;
 import util.FactoryConfiguration;
 
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ public class ProgramsDAOImpl implements ProgramsDAO {
                 return true;
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
         return false;
@@ -74,15 +73,15 @@ public class ProgramsDAOImpl implements ProgramsDAO {
     public ArrayList<Programs> getAll() {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
-        String hql="FROM Programs ";
-        Query query = session.createQuery(hql).setCacheable(true);
-        List<Programs>list = query.list();
+        String hql = "FROM Programs ";
+        Query query = session.createQuery(hql);
+        List<Programs> list = query.list();
         transaction.commit();
         session.close();
-        ArrayList<Programs>course=new ArrayList<>();
-        for (Programs p:list
-             ) {
-            course.add(new Programs(p.getId(),p.getName(),p.getDuration(),p.getFee()));
+        ArrayList<Programs> course = new ArrayList<>();
+        for (Programs p : list
+        ) {
+            course.add(new Programs(p.getId(), p.getName(), p.getDuration(), p.getFee()));
         }
         return course;
     }
@@ -92,7 +91,7 @@ public class ProgramsDAOImpl implements ProgramsDAO {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
         Programs programs = session.get(Programs.class, id);
-        if (programs!= null) {
+        if (programs != null) {
             transaction.commit();
             return true;
         }
@@ -129,15 +128,16 @@ public class ProgramsDAOImpl implements ProgramsDAO {
     public Programs searchProgramByName(String name) {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
-        String hql="from Programs where name=:name";
+        String hql = "from Programs where name=:name";
         Query query = session.createQuery(hql);
-        query.setParameter("name",name);
-        List<Programs>list = query.list();
+        query.setParameter("name", name);
+        List<Programs> list = query.list();
         transaction.commit();
         session.close();
-        for (Programs p:list
-             ) {
-            return new Programs(p.getId(),p.getName(),p.getDuration(),p.getFee());
-        }return null;
+        for (Programs p : list
+        ) {
+            return new Programs(p.getId(), p.getName(), p.getDuration(), p.getFee());
+        }
+        return null;
     }
 }

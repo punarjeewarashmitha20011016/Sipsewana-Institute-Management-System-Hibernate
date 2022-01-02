@@ -81,6 +81,7 @@ public class ViewProgramDetailsFormController {
         ) {
             programsTms.add(new ProgramsTm(dto.getId(), dto.getName(), dto.getDuration(), dto.getFee()));
         }
+        tblViewPrograms.getItems().clear();
         tblViewPrograms.setItems(programsTms);
     }
 

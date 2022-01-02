@@ -85,7 +85,7 @@ public class RegistrationDetailsDAOImpl implements RegistrationDetailsDAO {
     public String generateOrderDetailsId() {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
-        String sql = "SELECT orderDetailsId FROM OrderDetails Order by orderDetailsId desc limit 1";
+        String sql = "SELECT registrationDetailsId FROM registrationDetails Order by registrationDetailsId desc limit 1";
         NativeQuery sqlQuery = session.createSQLQuery(sql);
         List<String> list = sqlQuery.list();
         transaction.commit();

@@ -34,7 +34,7 @@ public class ManageProgramsFormController {
 
     HashMap<TextField, Pattern> map = new HashMap<>();
     Pattern idPattern = Pattern.compile("^(CT-)[0-9]{3}$");
-    Pattern namePattern = Pattern.compile("^[A-z0-9 ]{4,}$");
+    Pattern namePattern = Pattern.compile("^[A-z0-9 ]{3,}[-]*[A-z ]{2,}$");
     Pattern durationPattern = Pattern.compile("^[0-9]+[ ](months|day|days|month|year|years)$");
     Pattern feePattern = Pattern.compile("^[0-9]+[.]?[0-9]+$");
 

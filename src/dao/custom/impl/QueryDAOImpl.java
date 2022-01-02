@@ -19,9 +19,9 @@ public class QueryDAOImpl implements QueryDao {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
         /*String sql="select o.orderDetailsId,o.ordersId_orderId,o.studentId_id,o.interview_interviewFaced,o.courseId_id,o.courseName_name,o.courseFee_fee from orderdetails o inner join student s on studentId_id='"+id+"'";*/
-        String sql="select o.orderDetailsId,o.ordersId_orderId,o.studentId_id,o.interview_interviewFaced,o.courseId_id,o.courseName_name,o.courseFee_fee from orderdetails o inner join student s on studentId_id='"+id+"'";
+        String sql="select r.registrationDetailsId,r.registrationId_registrationId,r.studentId_id,r.interview_interviewFaced,r.courseId_id,r.courseName_name,r.courseFee_fee from registrationdetails r inner join student s on r.studentId_id=s.id where s.id='"+id+"'";
         Query query = session.createNativeQuery(sql);
-        List<Object[]> list = query.getResultList();
+        List<Object[]> list = query.list();
         transaction.commit();
         session.close();
         List<CustomDTO>dtos=new ArrayList<>();
@@ -31,6 +31,7 @@ public class QueryDAOImpl implements QueryDao {
                 dtos.add(new CustomDTO(obj[2].toString(),obj[5].toString()));
             }*/
             dtos.add(new CustomDTO(obj[2].toString(),obj[5].toString()));
+            System.out.println(obj[2]+" - "+obj[5]);
         }
 
         /*Iterator it = list.iterator();
@@ -40,6 +41,7 @@ public class QueryDAOImpl implements QueryDao {
                 System.out.println(line[i]);
             }
         }*/
+        System.out.println(dtos.toString());
         return dtos;
     }
 
@@ -47,7 +49,7 @@ public class QueryDAOImpl implements QueryDao {
     public BigInteger getCountOfEnrolledPrograms(String id) {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
-        String sql="select count(courseName_name) from OrderDetails inner join Student s on s.id='"+id+"'";
+        String sql="select count(courseName_name) from registrationDetails inner join Student s on s.id='"+id+"'";
         NativeQuery nativeQuery = session.createNativeQuery(sql);
         List<BigInteger>list = nativeQuery.list();
         transaction.commit();

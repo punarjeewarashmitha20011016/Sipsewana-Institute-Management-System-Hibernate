@@ -95,9 +95,9 @@ public class ManageStudentsFormController {
         StudentDTO dto = new StudentDTO(txtStudentId.getText(), txtStudentName.getText(), txtStudentDOB.getText(), txtStudentNic.getText(), setDate, interviewFaced);
         if (dto != null) {
             if (studentsBO.saveStudent(dto)) {
-                generateStudentId();
                 CommonFunctions.setNotificationSuccess("Student Saved", "Saving Student is successful");
                 clearFields();
+                generateStudentId();
             } else {
                 return;
             }
@@ -120,9 +120,9 @@ public class ManageStudentsFormController {
         if (dto != null) {
             if (studentsBO.ifStudentExists(txtStudentId.getText())) {
                 if (studentsBO.updateStudent(dto)) {
-                    generateStudentId();
                     CommonFunctions.setNotificationSuccess("Student Updated", "Updating Student is successful");
                     clearFields();
+                    generateStudentId();
                 } else {
                     return;
                 }
@@ -138,9 +138,9 @@ public class ManageStudentsFormController {
         if (dto != null) {
             if (studentsBO.ifStudentExists(txtStudentId.getText())) {
                 if (studentsBO.deleteStudent(dto)) {
-                    generateStudentId();
                     CommonFunctions.setNotificationSuccess("Student Deleted", "Deleting Student is successful");
                     clearFields();
+                    generateStudentId();
                 } else {
                     return;
                 }

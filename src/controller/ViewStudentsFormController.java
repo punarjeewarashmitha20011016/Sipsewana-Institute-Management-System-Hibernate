@@ -85,6 +85,7 @@ public class ViewStudentsFormController {
              ) {
             studentsTms.add(new StudentsTm(s.getId(),s.getName(),s.getDob(),s.getNic(),s.getInterviewFaced(),s.getRegisteredDate()));
         }
+        tblViewStudents.getItems().clear();
         tblViewStudents.setItems(studentsTms);
     }
 }

@@ -8,29 +8,29 @@ import java.util.List;
 @Entity
 public class Registration implements Serializable {
     @Id
-    private String orderId;
+    private String registrationId;
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
     private Student student;
     private String orderDate;
     private String orderTime;
     private String orderPrice;
-    @OneToMany(mappedBy = "registrationId")
+    @OneToMany(mappedBy = "registrationId",fetch = FetchType.EAGER)
     private List<RegistrationDetails> registrationDetails = new ArrayList<>();
 
     public Registration() {
     }
 
-    public Registration(String orderId, Student student, String orderDate, String orderTime, String orderPrice) {
-        this.orderId = orderId;
+    public Registration(String registrationId, Student student, String orderDate, String orderTime, String orderPrice) {
+        this.registrationId = registrationId;
         this.student = student;
         this.orderDate = orderDate;
         this.orderTime = orderTime;
         this.orderPrice = orderPrice;
     }
 
-    public Registration(String orderId, Student student, String orderDate, String orderTime, String orderPrice, List<RegistrationDetails> registrationDetails) {
-        this.orderId = orderId;
+    public Registration(String registrationId, Student student, String orderDate, String orderTime, String orderPrice, List<RegistrationDetails> registrationDetails) {
+        this.registrationId = registrationId;
         this.student = student;
         this.orderDate = orderDate;
         this.orderTime = orderTime;
@@ -38,12 +38,12 @@ public class Registration implements Serializable {
         this.registrationDetails = registrationDetails;
     }
 
-    public String getOrderId() {
-        return orderId;
+    public String getRegistrationId() {
+        return registrationId;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setRegistrationId(String orderId) {
+        this.registrationId = orderId;
     }
 
     public Student getStudent() {
@@ -89,7 +89,7 @@ public class Registration implements Serializable {
     @Override
     public String toString() {
         return "Order{" +
-                "orderId='" + orderId + '\'' +
+                "orderId='" + registrationId + '\'' +
                 ", student=" + student +
                 ", orderDate='" + orderDate + '\'' +
                 ", orderTime='" + orderTime + '\'' +

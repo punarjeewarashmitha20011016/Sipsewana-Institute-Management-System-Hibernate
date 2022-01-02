@@ -13,7 +13,6 @@ import dto.StudentDTO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -60,9 +59,9 @@ public class RegisterStudentsFormController {
     public JFXRadioButton rdbRegisteredToday;
     public Label lblSetOrderId;
     Pattern idPattern = Pattern.compile("^(ST-)[0-9]{3}$");
+    int selectedIndex = -1;
     private RegisterStudentsBO registerStudentsBO = (RegisterStudentsBO) BOFactory.getBoFactory().getBOTypes(BOFactory.BOTypes.RegisterStudents);
     private double totalAmount = 0.0;
-    int selectedIndex = -1;
 
     public void initialize() {
         setOrderId();
@@ -104,12 +103,16 @@ public class RegisterStudentsFormController {
     }
 
     public void cmbSelectCourseID(ActionEvent actionEvent) {
-        String courseId = cmbCourseId.getValue().toString();
-        ProgramsDTO programsDTO = registerStudentsBO.searchPrograms(courseId);
-        txtCourseName.setText(programsDTO.getName());
-        txtCourseFee.setText(String.valueOf(programsDTO.getFee()));
-        if (!cmbCourseId.getSelectionModel().isSelected(-1)) {
-            addToCartBtn.setDisable(false);
+        if (cmbCourseId.getSelectionModel().getSelectedItem()!=null) {
+            String courseId = cmbCourseId.getValue().toString();
+            ProgramsDTO programsDTO = registerStudentsBO.searchPrograms(courseId);
+            txtCourseName.setText(programsDTO.getName());
+            txtCourseFee.setText(String.valueOf(programsDTO.getFee()));
+            if (!cmbCourseId.getSelectionModel().isSelected(-1)) {
+                addToCartBtn.setDisable(false);
+            }
+        }else {
+            return;
         }
     }
 
@@ -192,6 +195,10 @@ public class RegisterStudentsFormController {
             String orderDetailsId = loadOrderDetailsId();
             list.add(new OrderDetailsDTO(orderDetailsId, lblSetOrderId.getText(), tm.getStudentId(), tm.getInterviewFaced(), tm.getCourseId(), tm.getCourseName(), tm.getCourseFee()));
         }
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.print(list.get(i));
+        }
         OrderDTO orderDTO = new OrderDTO(lblSetOrderId.getText(), txtStudentId.getText(), setDate, setTime, lblTotalAmount.getText(), list);
         if (registerStudentsBO.saveOrder(orderDTO)) {
             CommonFunctions.setNotificationSuccess("Order Placed", "Placing Order is Successful");
@@ -235,7 +242,7 @@ public class RegisterStudentsFormController {
         return registerStudentsBO.getOrderDetailsId();
     }
 
-    public String getReceptionistName(){
+    public String getReceptionistName() {
         String receptionistUserName = userNameArray[0];
         String receptionistName = registerStudentsBO.getReceptionistName(receptionistUserName);
         return receptionistName;

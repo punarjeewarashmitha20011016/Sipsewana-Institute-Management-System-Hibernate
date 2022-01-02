@@ -12,17 +12,10 @@ public class Programs implements Serializable {
     @Column(name = "name")
     private String name;
     private String duration;
-    @Column(name = "fee")
     private double fee;
 
     @OneToMany(mappedBy = "courseId")
-    private List<RegistrationDetails> registrationDetailsListId = new ArrayList<>();
-
-    @OneToMany(mappedBy = "courseName")
-    private List<RegistrationDetails> registrationDetailsListName = new ArrayList<>();
-
-    @OneToMany(mappedBy = "courseFee", cascade = CascadeType.ALL)
-    private List<RegistrationDetails> registrationDetailsListFee = new ArrayList<>();
+    private List<RegistrationDetails> registrationDetailsList = new ArrayList<>();
 
     public Programs() {
     }
@@ -66,28 +59,12 @@ public class Programs implements Serializable {
         this.fee = fee;
     }
 
-    public List<RegistrationDetails> getRegistrationDetailsListId() {
-        return registrationDetailsListId;
+    public List<RegistrationDetails> getRegistrationDetailsList() {
+        return registrationDetailsList;
     }
 
-    public void setRegistrationDetailsListId(List<RegistrationDetails> registrationDetailsListId) {
-        this.registrationDetailsListId = registrationDetailsListId;
-    }
-
-    public List<RegistrationDetails> getRegistrationDetailsListName() {
-        return registrationDetailsListName;
-    }
-
-    public void setRegistrationDetailsListName(List<RegistrationDetails> registrationDetailsListName) {
-        this.registrationDetailsListName = registrationDetailsListName;
-    }
-
-    public List<RegistrationDetails> getRegistrationDetailsListFee() {
-        return registrationDetailsListFee;
-    }
-
-    public void setRegistrationDetailsListFee(List<RegistrationDetails> registrationDetailsListFee) {
-        this.registrationDetailsListFee = registrationDetailsListFee;
+    public void setRegistrationDetailsList(List<RegistrationDetails> registrationDetailsListId) {
+        this.registrationDetailsList = registrationDetailsListId;
     }
 
     @Override

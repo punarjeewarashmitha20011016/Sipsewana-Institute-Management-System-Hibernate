@@ -9,8 +9,9 @@ import java.io.Serializable;
 @Entity
 public class RegistrationDetails implements Serializable {
     @Id
-    private String orderDetailsId;
+    private String registrationDetailsId;
     @ManyToOne
+    @JoinColumn(referencedColumnName = "registrationId")
     private Registration registrationId;
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
@@ -18,6 +19,8 @@ public class RegistrationDetails implements Serializable {
     @ManyToOne
     @JoinColumn(referencedColumnName = "interviewFaced")
     private Student interview;
+
+    @Id
     @ManyToOne
     @JoinColumn(referencedColumnName = "id")
     private Programs courseId;
@@ -31,8 +34,8 @@ public class RegistrationDetails implements Serializable {
     public RegistrationDetails() {
     }
 
-    public RegistrationDetails(String orderDetailsId, Registration registrationId, Student studentId, Student interview, Programs courseId, Programs courseName, Programs courseFee) {
-        this.orderDetailsId = orderDetailsId;
+    public RegistrationDetails(String registrationDetailsId, Registration registrationId, Student studentId, Student interview, Programs courseId, Programs courseName, Programs courseFee) {
+        this.registrationDetailsId = registrationDetailsId;
         this.registrationId = registrationId;
         this.studentId = studentId;
         this.interview = interview;
@@ -41,12 +44,12 @@ public class RegistrationDetails implements Serializable {
         this.courseFee = courseFee;
     }
 
-    public String getOrderDetailsId() {
-        return orderDetailsId;
+    public String getRegistrationDetailsId() {
+        return registrationDetailsId;
     }
 
-    public void setOrderDetailsId(String orderDetailsId) {
-        this.orderDetailsId = orderDetailsId;
+    public void setRegistrationDetailsId(String orderDetailsId) {
+        this.registrationDetailsId = orderDetailsId;
     }
 
     public Registration getRegistrationId() {
@@ -100,7 +103,7 @@ public class RegistrationDetails implements Serializable {
     @Override
     public String toString() {
         return "OrderDetails{" +
-                "orderDetailsId='" + orderDetailsId + '\'' +
+                "orderDetailsId='" + registrationDetailsId + '\'' +
                 ", ordersId=" + registrationId +
                 ", studentId=" + studentId +
                 ", interview=" + interview +

@@ -51,6 +51,7 @@ public class ViewStudentDetailsFormController {
             StudentDTO dto = studentDetailsFormBO.searchStudent(studentId);
             studentDetailsTms.add(new StudentDetailsTm(dto.getId(), dto.getName(), dto.getRegisteredDate(), c.getProgram(), programsDTO.getDuration()));
         }
+        tblViewStudentsDetails.getItems().clear();
         tblViewStudentsDetails.setItems(studentDetailsTms);
     }
 }
