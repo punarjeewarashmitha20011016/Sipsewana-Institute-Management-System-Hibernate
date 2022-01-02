@@ -1,8 +1,6 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,17 +9,20 @@ import java.util.List;
 public class Programs implements Serializable {
     @Id
     private String id;
+    @Column(name = "name")
     private String name;
     private String duration;
+    @Column(name = "fee")
     private double fee;
+
     @OneToMany(mappedBy = "courseId")
-    private List<OrderDetails> orderDetailsListId = new ArrayList<>();
+    private List<RegistrationDetails> registrationDetailsListId = new ArrayList<>();
 
     @OneToMany(mappedBy = "courseName")
-    private List<OrderDetails> orderDetailsListName = new ArrayList<>();
+    private List<RegistrationDetails> registrationDetailsListName = new ArrayList<>();
 
-    @OneToMany(mappedBy = "courseFee")
-    private List<OrderDetails> orderDetailsListFee = new ArrayList<>();
+    @OneToMany(mappedBy = "courseFee", cascade = CascadeType.ALL)
+    private List<RegistrationDetails> registrationDetailsListFee = new ArrayList<>();
 
     public Programs() {
     }
@@ -65,28 +66,28 @@ public class Programs implements Serializable {
         this.fee = fee;
     }
 
-    public List<OrderDetails> getOrderDetailsListId() {
-        return orderDetailsListId;
+    public List<RegistrationDetails> getRegistrationDetailsListId() {
+        return registrationDetailsListId;
     }
 
-    public void setOrderDetailsListId(List<OrderDetails> orderDetailsListId) {
-        this.orderDetailsListId = orderDetailsListId;
+    public void setRegistrationDetailsListId(List<RegistrationDetails> registrationDetailsListId) {
+        this.registrationDetailsListId = registrationDetailsListId;
     }
 
-    public List<OrderDetails> getOrderDetailsListName() {
-        return orderDetailsListName;
+    public List<RegistrationDetails> getRegistrationDetailsListName() {
+        return registrationDetailsListName;
     }
 
-    public void setOrderDetailsListName(List<OrderDetails> orderDetailsListName) {
-        this.orderDetailsListName = orderDetailsListName;
+    public void setRegistrationDetailsListName(List<RegistrationDetails> registrationDetailsListName) {
+        this.registrationDetailsListName = registrationDetailsListName;
     }
 
-    public List<OrderDetails> getOrderDetailsListFee() {
-        return orderDetailsListFee;
+    public List<RegistrationDetails> getRegistrationDetailsListFee() {
+        return registrationDetailsListFee;
     }
 
-    public void setOrderDetailsListFee(List<OrderDetails> orderDetailsListFee) {
-        this.orderDetailsListFee = orderDetailsListFee;
+    public void setRegistrationDetailsListFee(List<RegistrationDetails> registrationDetailsListFee) {
+        this.registrationDetailsListFee = registrationDetailsListFee;
     }
 
     @Override

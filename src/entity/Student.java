@@ -17,7 +17,7 @@ public class Student implements Serializable {
     private String interviewFaced;
     private String registeredDate;
     @OneToMany(mappedBy = "student")
-    private List<Orders> ordersList =new ArrayList<>();
+    private final List<Registration> registrationList = new ArrayList<>();
 
     public Student() {
     }

@@ -7,8 +7,8 @@ import dto.OrderDTO;
 import dto.OrderDetailsDTO;
 import dto.ProgramsDTO;
 import dto.StudentDTO;
-import entity.Orders;
-import entity.OrderDetails;
+import entity.Registration;
+import entity.RegistrationDetails;
 import entity.Programs;
 import entity.Student;
 import javafx.collections.FXCollections;
@@ -20,8 +20,8 @@ public class RegisterStudentsBOImpl implements RegisterStudentsBO {
     private StudentDAO studentDAO = (StudentDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DAOTypes.STUDENT);
     private RegistrationFeeDAO registrationFeeDAO = (RegistrationFeeDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DAOTypes.RegistrationFee);
     private ProgramsDAO programsDAO= (ProgramsDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DAOTypes.PROGRAMS);
-    private OrderDAO orderDAO= (OrderDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DAOTypes.ORDER);
-    private OrderDetailsDAO orderDetailsDAO= (OrderDetailsDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DAOTypes.ORDERDETAILS);
+    private RegistrationDAO registrationDAO = (RegistrationDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DAOTypes.REGISTRATION);
+    private RegistrationDetailsDAO registrationDetailsDAO = (RegistrationDetailsDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DAOTypes.REGISTRATIONDETAILS);
     private ReceptionistsDAO receptionistsDAO= (ReceptionistsDAO) DAOFactory.getDaoFactory().getDao(DAOFactory.DAOTypes.RECEPTIONISTS);
 
     @Override
@@ -59,26 +59,26 @@ public class RegisterStudentsBOImpl implements RegisterStudentsBO {
 
     @Override
     public boolean saveOrder(OrderDTO orderDTO) {
-        if (orderDAO.ifOrderExists(orderDTO.getOrderId())){
+        if (registrationDAO.ifOrderExists(orderDTO.getOrderId())){
             return false;
         }
         Student student = studentDAO.search(orderDTO.getStudentId());
-        Orders orders =new Orders(orderDTO.getOrderId(),student,orderDTO.getOrderDate(),orderDTO.getOrderTime(),orderDTO.getOrderPrice());
-        if (!orderDAO.save(orders)){
+        Registration registration =new Registration(orderDTO.getOrderId(),student,orderDTO.getOrderDate(),orderDTO.getOrderTime(),orderDTO.getOrderPrice());
+        if (!registrationDAO.save(registration)){
             return false;
         }
         for (OrderDetailsDTO dto:orderDTO.getOrderDetails()
              ) {
             Student studentSearch = studentDAO.search(dto.getStudentId());
             Programs programSearch = programsDAO.search(dto.getCourseId());
-            OrderDetails orderDetails=new OrderDetails(dto.getOrderDetailsId()
-                    ,new Orders(orderDTO.getOrderId(),
+            RegistrationDetails registrationDetails =new RegistrationDetails(dto.getOrderDetailsId()
+                    ,new Registration(orderDTO.getOrderId(),
                     studentSearch,orderDTO.getOrderDate(),
                     orderDTO.getOrderTime(),orderDTO.getOrderPrice()),
                     studentSearch,studentSearch,programSearch,
                     programSearch,programSearch);
 
-            if (!orderDetailsDAO.save(orderDetails)){
+            if (!registrationDetailsDAO.save(registrationDetails)){
                 return false;
             }
         }return true;
@@ -86,12 +86,12 @@ public class RegisterStudentsBOImpl implements RegisterStudentsBO {
 
     @Override
     public String getOrderId() {
-        return orderDAO.generateOrderId();
+        return registrationDAO.generateOrderId();
     }
 
     @Override
     public String getOrderDetailsId() {
-         return orderDetailsDAO.generateOrderDetailsId();
+         return registrationDetailsDAO.generateOrderDetailsId();
     }
 
     @Override

@@ -22,8 +22,8 @@ public class DAOFactory {
             case PROGRAMS:return new ProgramsDAOImpl();
             case STUDENT:return new StudentDAOImpl();
             case RegistrationFee:return new RegistrationFeeDAOImpl();
-            case ORDER:return new OrderDAOImpl();
-            case ORDERDETAILS:return new OrderDetailsDAOImpl();
+            case REGISTRATION:return new RegistrationDAOImpl();
+            case REGISTRATIONDETAILS:return new RegistrationDetailsDAOImpl();
             case QueryDAO:return new QueryDAOImpl();
             default:
                 return null;
@@ -31,6 +31,6 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        RECEPTIONISTS,PROGRAMS,STUDENT,RegistrationFee,ORDER,ORDERDETAILS,QueryDAO;
+        RECEPTIONISTS,PROGRAMS,STUDENT,RegistrationFee,REGISTRATION,REGISTRATIONDETAILS,QueryDAO;
     }
 }

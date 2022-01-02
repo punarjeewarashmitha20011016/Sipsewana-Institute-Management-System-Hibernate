@@ -109,7 +109,7 @@
             </Label>
             <Label layoutX="55.0" layoutY="300.0" text="Note : If student is not a registered student. The registration Fee will be automatically added to the bill" />
             <JFXRadioButton fx:id="rdbRegisteredToday" layoutX="55.0" layoutY="132.0" onAction="#selectRegisteredTodayRdb" styleClass="registerStudentsPromptTxt-radioBtn" stylesheets="@assets/css/TextFields.css" text="Registered Today" textFill="WHITE" />
-            <Label layoutX="529.0" layoutY="10.0" prefHeight="30.0" prefWidth="97.0" text="Order ID :">
+            <Label layoutX="470.0" layoutY="10.0" prefHeight="30.0" prefWidth="156.0" text="Registration ID :">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>

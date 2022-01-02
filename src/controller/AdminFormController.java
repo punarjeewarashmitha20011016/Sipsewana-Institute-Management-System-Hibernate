@@ -27,6 +27,7 @@ public class AdminFormController {
 
     public void initialize(){
         CommonFunctions.animatedWheels(imgWheel1,imgWheel2);
+        CommonFunctions.loadDateAndTime(lblTime);
     }
     public void btnSystemReports(ActionEvent actionEvent) {
     }

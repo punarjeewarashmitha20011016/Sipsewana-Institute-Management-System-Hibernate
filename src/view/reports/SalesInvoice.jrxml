@@ -28,7 +28,7 @@
 			<rightPen lineWidth="0.5" lineColor="#000000"/>
 		</box>
 	</style>
-	<parameter name="ordersId" class="java.lang.String"/>
+	<parameter name="registrationId" class="java.lang.String"/>
 	<parameter name="studentName" class="java.lang.String"/>
 	<parameter name="receptionistName" class="java.lang.String"/>
 	<parameter name="subTotal" class="java.lang.Double"/>
@@ -153,7 +153,7 @@
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$P{ordersId}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{registrationId}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="263" y="9" width="90" height="18" uuid="14f5dd3d-d7d1-4e76-9617-1238dcc49dee">

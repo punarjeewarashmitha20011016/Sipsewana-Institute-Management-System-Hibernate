@@ -20,7 +20,7 @@
    <left>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="588.0" layoutX="-2.0" layoutY="-10.0" strokeType="INSIDE" strokeWidth="0.0" width="201.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="588.0" layoutX="-2.0" layoutY="-5.0" strokeType="INSIDE" strokeWidth="0.0" width="201.0">
                <fill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -187,10 +187,10 @@
                <font>
                   <Font size="13.0" />
                </font></Label>
-            <Separator layoutX="8.0" layoutY="3.0" prefHeight="6.0" prefWidth="179.0" />
-            <Separator layoutX="184.0" layoutY="6.0" orientation="VERTICAL" prefHeight="49.0" prefWidth="4.0" />
-            <Separator layoutX="8.0" layoutY="6.0" orientation="VERTICAL" prefHeight="47.0" prefWidth="5.0" />
-            <Separator layoutX="8.0" layoutY="51.0" prefHeight="6.0" prefWidth="179.0" />
+            <Separator layoutX="8.0" layoutY="2.0" prefHeight="6.0" prefWidth="179.0" style="-fx-background-color: black;" />
+            <Separator layoutX="184.0" layoutY="5.0" orientation="VERTICAL" prefHeight="49.0" prefWidth="4.0" style="-fx-background-color: black;" />
+            <Separator layoutX="6.0" layoutY="5.0" orientation="VERTICAL" prefHeight="47.0" prefWidth="5.0" style="-fx-background-color: black;" />
+            <Separator layoutX="8.0" layoutY="50.0" prefHeight="6.0" prefWidth="179.0" style="-fx-background-color: black;" />
             <Label layoutX="409.0" layoutY="8.0" prefHeight="38.0" prefWidth="302.0" text="SIPSEWANA INSTITUTE">
                <font>
                   <Font name="Gill Sans MT Bold" size="24.0" />

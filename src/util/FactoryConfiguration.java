@@ -18,7 +18,7 @@ public class FactoryConfiguration {
         }catch (Exception e){
             e.printStackTrace();
         }
-        Configuration configuration = new Configuration().mergeProperties(properties).addAnnotatedClass(Receptionist.class).addAnnotatedClass(Programs.class).addAnnotatedClass(Student.class).addAnnotatedClass(RegistrationFee.class).addAnnotatedClass(Orders.class).addAnnotatedClass(OrderDetails.class);
+        Configuration configuration = new Configuration().mergeProperties(properties).addAnnotatedClass(Receptionist.class).addAnnotatedClass(Programs.class).addAnnotatedClass(Student.class).addAnnotatedClass(RegistrationFee.class).addAnnotatedClass(Registration.class).addAnnotatedClass(RegistrationDetails.class);
         sessionFactory = configuration.buildSessionFactory();
     }
     public static FactoryConfiguration getFactoryConfiguration(){

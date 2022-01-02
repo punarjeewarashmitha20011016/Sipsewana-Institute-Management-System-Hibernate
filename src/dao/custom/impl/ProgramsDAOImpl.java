@@ -6,6 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
+import org.slf4j.Logger;
 import util.FactoryConfiguration;
 
 import java.util.ArrayList;
@@ -14,13 +15,18 @@ import java.util.List;
 public class ProgramsDAOImpl implements ProgramsDAO {
     @Override
     public boolean save(Programs programs) {
-        if (programs != null) {
-            Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
-            Transaction transaction = session.beginTransaction();
-            session.save(programs);
-            transaction.commit();
-            session.close();
-            return true;
+        try {
+            if (programs != null) {
+                Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
+                Transaction transaction = session.beginTransaction();
+                session.save(programs);
+                transaction.commit();
+                session.close();
+                return true;
+            }
+
+        }catch (Exception e){
+            System.out.println(e);
         }
         return false;
     }
@@ -69,7 +75,7 @@ public class ProgramsDAOImpl implements ProgramsDAO {
         Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
         Transaction transaction = session.beginTransaction();
         String hql="FROM Programs ";
-        Query query = session.createQuery(hql);
+        Query query = session.createQuery(hql).setCacheable(true);
         List<Programs>list = query.list();
         transaction.commit();
         session.close();

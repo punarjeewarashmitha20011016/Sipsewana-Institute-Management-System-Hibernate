@@ -1,5 +1,8 @@
 package entity;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
