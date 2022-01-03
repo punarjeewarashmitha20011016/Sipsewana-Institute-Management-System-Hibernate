@@ -40,22 +40,7 @@
                   </LinearGradient>
                </stroke>
             </Rectangle>
-            <JFXButton buttonType="RAISED" layoutY="80.0" onAction="#btnSystemReports" opacity="0.62" prefHeight="48.0" prefWidth="199.0" style="-fx-background-color: #0077a2;" styleClass="adminForm-menu-text" stylesheets="@assets/css/TextFields.css" text="System Reports" textFill="WHITE">
-               <ripplerFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop color="#676f97" />
-                        <Stop color="#15a1ff" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </ripplerFill>
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></JFXButton>
-            <JFXButton buttonType="RAISED" layoutY="148.0" onAction="#btnManagePrograms" opacity="0.62" prefHeight="48.0" prefWidth="199.0" style="-fx-background-color: #0077a2;" styleClass="adminForm-menu-text" stylesheets="@assets/css/TextFields.css" text="Manage Programs" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutY="49.0" onAction="#btnManagePrograms" opacity="0.62" prefHeight="48.0" prefWidth="199.0" style="-fx-background-color: #0077a2;" styleClass="adminForm-menu-text" stylesheets="@assets/css/TextFields.css" text="Manage Programs" textFill="WHITE">
                <ripplerFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -109,7 +94,7 @@
                   </AnchorPane>
                </children>
             </VBox>
-            <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="215.0" onAction="#btnManageReceptionists" opacity="0.62" prefHeight="48.0" prefWidth="199.0" style="-fx-background-color: #0077a2;" styleClass="adminForm-menu-text" stylesheets="@assets/css/TextFields.css" text="Manage Receptionists" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="-1.0" layoutY="116.0" onAction="#btnManageReceptionists" opacity="0.62" prefHeight="48.0" prefWidth="199.0" style="-fx-background-color: #0077a2;" styleClass="adminForm-menu-text" stylesheets="@assets/css/TextFields.css" text="Manage Receptionists" textFill="WHITE">
                <ripplerFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -183,7 +168,7 @@
                <font>
                   <Font size="13.0" />
                </font></Label>
-            <Label fx:id="lblTime" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="20.0" prefHeight="24.0" prefWidth="144.0" textFill="WHITE">
+            <Label fx:id="lblTime" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="17.0" prefHeight="24.0" prefWidth="144.0" styleClass="clockTxt" stylesheets="@assets/css/TextFields.css" textFill="WHITE">
                <font>
                   <Font size="13.0" />
                </font></Label>

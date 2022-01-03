@@ -29,9 +29,6 @@ public class AdminFormController {
         CommonFunctions.animatedWheels(imgWheel1,imgWheel2);
         CommonFunctions.loadDateAndTime(lblTime);
     }
-    public void btnSystemReports(ActionEvent actionEvent) {
-    }
-
     public void btnManagePrograms(ActionEvent actionEvent) throws IOException {
         loadUi("ManageProgramsForm");
     }

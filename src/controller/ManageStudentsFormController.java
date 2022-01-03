@@ -45,6 +45,7 @@ public class ManageStudentsFormController {
     public void initialize() {
         validateFields();
         generateStudentId();
+        deleteBtnId.setDisable(true);
     }
 
     private void validateFields() {
@@ -160,9 +161,9 @@ public class ManageStudentsFormController {
     public void btnFacedTheInterview(MouseEvent mouseEvent) {
         if (rdbFacedInterview.isSelected()) {
             saveBtnId.setDisable(false);
-            updateBtnId.setDisable(false);
-            deleteBtnId.setDisable(false);
             interviewFaced = "Faced";
+        }else{
+            saveBtnId.setDisable(true);
         }
     }
 }
