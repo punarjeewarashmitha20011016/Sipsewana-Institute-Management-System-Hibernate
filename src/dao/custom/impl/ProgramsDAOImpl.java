@@ -62,6 +62,7 @@ public class ProgramsDAOImpl implements ProgramsDAO {
             Session session = FactoryConfiguration.getFactoryConfiguration().getSession();
             Transaction transaction = session.beginTransaction();
             Programs programs = session.get(Programs.class, id);
+            System.out.println(programs);
             transaction.commit();
             session.close();
             return programs;

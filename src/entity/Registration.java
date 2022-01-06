@@ -9,13 +9,13 @@ import java.util.List;
 public class Registration implements Serializable {
     @Id
     private String registrationId;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(referencedColumnName = "id")
     private Student student;
     private String orderDate;
     private String orderTime;
     private String orderPrice;
-    @OneToMany(mappedBy = "registrationId",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "registrationId",cascade = CascadeType.ALL)
     private List<RegistrationDetails> registrationDetails = new ArrayList<>();
 
     public Registration() {

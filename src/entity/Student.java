@@ -1,5 +1,6 @@
 package entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -16,8 +17,12 @@ public class Student implements Serializable {
     private String nic;
     private String interviewFaced;
     private String registeredDate;
-    @OneToMany(mappedBy = "student")
+
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL)
     private final List<Registration> registrationList = new ArrayList<>();
+
+    @OneToMany(mappedBy = "studentId",cascade = CascadeType.ALL)
+    private final List<RegistrationDetails> registrationDetailsList = new ArrayList<>();
 
     public Student() {
     }

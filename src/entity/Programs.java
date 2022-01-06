@@ -14,8 +14,8 @@ public class Programs implements Serializable {
     private String duration;
     private double fee;
 
-    @OneToMany(mappedBy = "courseId")
-    private List<RegistrationDetails> registrationDetailsList = new ArrayList<>();
+    @OneToMany(mappedBy = "courseId",cascade = CascadeType.ALL)
+    private List<RegistrationDetails> registrationDetailsListId = new ArrayList<>();
 
     public Programs() {
     }
@@ -59,13 +59,6 @@ public class Programs implements Serializable {
         this.fee = fee;
     }
 
-    public List<RegistrationDetails> getRegistrationDetailsList() {
-        return registrationDetailsList;
-    }
-
-    public void setRegistrationDetailsList(List<RegistrationDetails> registrationDetailsListId) {
-        this.registrationDetailsList = registrationDetailsListId;
-    }
 
     @Override
     public String toString() {

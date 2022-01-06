@@ -65,27 +65,23 @@ public class ManageProgramsFormController {
             });
         }
 
-    Object response = Validator.validate(map);
-        if(response instanceof Boolean)
-
-    {
-        saveBtnId.setDisable(false);
-        updateBtnId.setDisable(false);
-        deleteBtnId.setDisable(false);
-    }
-        if(response instanceof TextField)
-
-    {
-        if (event.getCode().equals(KeyCode.TAB)) {
-            TextField txt = (TextField) response;
-            txt.requestFocus();
-            saveBtnId.setDisable(true);
-            updateBtnId.setDisable(true);
-            deleteBtnId.setDisable(true);
+        Object response = Validator.validate(map);
+        if (response instanceof Boolean) {
+            saveBtnId.setDisable(false);
+            updateBtnId.setDisable(false);
+            deleteBtnId.setDisable(false);
         }
-    }
+        if (response instanceof TextField) {
+            if (event.getCode().equals(KeyCode.TAB)) {
+                TextField txt = (TextField) response;
+                txt.requestFocus();
+                saveBtnId.setDisable(true);
+                updateBtnId.setDisable(true);
+                deleteBtnId.setDisable(true);
+            }
+        }
 
-}
+    }
 
     public void validateFields() {
         map.put(txtProgramId, idPattern);
